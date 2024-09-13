@@ -5,5 +5,5 @@ export interface Blog{
     content:string;
     image:string;
     isFeatured:boolean;
-    categoryId:string;
+    categoryId:number;
 }

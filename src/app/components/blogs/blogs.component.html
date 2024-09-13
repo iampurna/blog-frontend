@@ -1,1 +1,9 @@
-<p>blogs works!</p>
+<div class="flex flex-col items-center px-20 mb-10">
+    <h1>All Blogs</h1>
+    <div class="flex flex-wrap gap-4">
+        @for (blog of allBlogs; track $index) {
+        <div class="w-3/12 ">
+            <app-blog-card [blog]="blog"></app-blog-card>
+        </div>
+        }
+    </div>
