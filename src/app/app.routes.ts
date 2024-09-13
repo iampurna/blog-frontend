@@ -4,6 +4,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ManageBlogsComponent } from './components/admin/manage-blogs/manage-blogs.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path:"footer",
         component:FooterComponent
-    }
+    },
+{
+    path:"admin/blogs",
+component:ManageBlogsComponent
+}    
 ];
