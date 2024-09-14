@@ -22,4 +22,10 @@ export class BlogService {
   deleteBlogs(id: number) {
     return this.http.delete(environment.apiUrl + '/api/Blogs/' + id);
   }
+  addBlog(blog: Blog) {
+    return this.http.post(environment.apiUrl + '/api/Blogs', blog);
+  }
+  updateBlog(id: number, blog: Blog) {
+    return this.http.put(environment.apiUrl + '/api/Blogs/' + id, blog);
+  }
 }

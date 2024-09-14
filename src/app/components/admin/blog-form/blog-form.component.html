@@ -1,1 +1,57 @@
-<p>blog-form works!</p>
+<div class="flex justify-center w-full px-20 my-5">
+    <form [formGroup]="blogForm" class="w-6/12">
+        @if(isEdit)
+        {
+        <h2>Update blog</h2>
+        } @else {<h2>Creat new blog</h2>}
+
+        <div class="flex flex-wrap">
+            <div class="w-full mt-10">
+                <mat-form-field class="w-full">
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="categoryId">
+                        @for (item of categoryList; track $index) {
+                        <mat-option [value]="item.id">{{item.name}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="w-full mt-10">
+                <mat-form-field class="w-full">
+                    <mat-label>Title</mat-label>
+                    <input matInput type="text" formControlName="title">
+                </mat-form-field>
+            </div>
+            <div class="w-full">
+                <mat-form-field class="w-full">
+                    <mat-label>Description</mat-label>
+                    <input matInput type="text" formControlName="description">
+                </mat-form-field>
+            </div>
+
+            <div class="w-full">
+                <mat-form-field class="w-full">
+                    <mat-label>Image</mat-label>
+                    <input matInput type="text" formControlName="image">
+                </mat-form-field>
+            </div>
+            <div class="w-full">
+                <mat-form-field class="w-full">
+                    <mat-label>Content</mat-label>
+                    <textarea matInput type="text" rows="15" formControlName="content"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="w-full">
+                <mat-checkbox formControlName="isFeatured">Is Featured</mat-checkbox>
+            </div>
+            <div class="w-full mb-5 flex-justify-center">
+                @if(isEdit){
+                <button mat-raised-button color="primary" (click)="update()">Update</button>
+
+                }@else {
+                <button mat-raised-button color="primary" (click)="create()">Create</button>
+                }
+            </div>
+        </div>
+    </form>
+</div>

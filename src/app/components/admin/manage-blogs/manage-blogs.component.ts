@@ -11,6 +11,7 @@ import { BlogService } from '../../../blog.service';
 import { MatButtonModule } from '@angular/material/button';
 import { CategoryService } from '../../../category.service';
 import { Category } from '../../../types/category';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-manage-blogs',
@@ -23,6 +24,7 @@ import { Category } from '../../../types/category';
     MatInputModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    RouterLink,
   ],
   templateUrl: './manage-blogs.component.html',
   styleUrl: './manage-blogs.component.scss',
@@ -75,7 +77,7 @@ export class ManageBlogsComponent {
     // console.log(data.id);
     // this.blogService.deleteBlogs(data.id).subscribe(() => {
     //   this.dataSource.data = this.blogs.filter((x) => x.id != data.id);
-    this.blogService.deleteBlogs(data.id).subscribe({
+    this.blogService.deleteBlogs(data.id!).subscribe({
       next: (response) => {
         console.log('Response from server:', response);
         this.blogs = this.blogs.filter((x) => x.id !== data.id);
