@@ -3,7 +3,7 @@
     <div class="flex flex-wrap gap-4">
         @for (blog of allBlogs; track $index) {
         <div class="w-3/12 ">
-            <app-blog-card [blog]="blog"></app-blog-card>
+            <app-blog-card [blog]="blog" [categories]="categoryList"></app-blog-card>
         </div>
         }
     </div>

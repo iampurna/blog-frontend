@@ -4,20 +4,22 @@ import { Blog } from './types/blog';
 import { environment } from '../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BlogService {
-  http=inject(HttpClient);
-  constructor() { 
+  http = inject(HttpClient);
+  constructor() {}
+  getFeaturedBlogs() {
+    return this.http.get<Blog[]>(environment.apiUrl + '/api/Blogs/featured');
   }
-  getFeaturedBlogs(){
-    return  this.http.get<Blog[]>(environment.apiUrl+"/api/Blogs/featured");
-  }
-  getAllBlogs(){
-    return  this.http.get<Blog[]>(environment.apiUrl+'/api/Blogs');
+  getAllBlogs() {
+    return this.http.get<Blog[]>(environment.apiUrl + '/api/Blogs');
   }
 
-  getBlogsById(id:number){
-    return  this.http.get<Blog>(environment.apiUrl+'/api/Blogs/'+id);
+  getBlogsById(id: number) {
+    return this.http.get<Blog>(environment.apiUrl + '/api/Blogs/' + id);
+  }
+  deleteBlogs(id: number) {
+    return this.http.delete(environment.apiUrl + '/api/Blogs/' + id);
   }
 }

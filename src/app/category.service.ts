@@ -11,6 +11,6 @@ http=inject(HttpClient);
   constructor() { 
   }
   getCategoryList(){
-      return this.http.get<Category[]>(environment.apiUrl+'api/Category');
+      return this.http.get<Category[]>(environment.apiUrl+'/api/Category');
   }
 }
